@@ -1,5 +1,3 @@
-importScripts('readability.js');
-
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'extractText') {
     const documentClone = document.cloneNode(true);

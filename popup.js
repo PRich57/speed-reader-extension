@@ -22,7 +22,7 @@ function startReading() {
 
     intervalId = setInterval(() => {
       if (currentIndex < words.length) {
-        document.getElementById('reader').textContent = words[currentIndex++];
+        displayWord(words[currentIndex++]);
       } else {
         stopReading();
       }
@@ -41,5 +41,19 @@ function updateSpeed() {
   if (running) {
     stopReading();
     startReading();
+  }
+}
+
+function displayWord(word) {
+  const reader = document.getElementById('reader');
+  reader.textContent = word;
+
+  // Adjust font size based on word length
+  if (word.length > 10) {
+    reader.style.fontSize = '32px';
+  } else if (word.length > 7) {
+    reader.style.fontSize = '40px';
+  } else {
+    reader.style.fontSize = '48px';
   }
 }
